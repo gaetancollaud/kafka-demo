@@ -3,6 +3,7 @@ package net.collaud.gaetan.kafkademo.spring;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +36,11 @@ public class SpringKafkaProducer implements CommandLineRunner {
     public void sendMessage() {
         String message = Instant.now().toString();
         LOG.info("Sending message '{}'", message);
-        this.kafkaTemplate.send("spring-topic", message);
+        try {
+            this.kafkaTemplate.send("spring-topic", message).get();
+        } catch (InterruptedException | ExecutionException e) {
+            LOG.error("Error while publishing to kafka", e);
+        }
     }
 
 }
