@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 public class RawKafkaConsumer implements CommandLineRunner {
     private static final Logger LOG = LoggerFactory.getLogger(RawKafkaConsumer.class);
 
-    public static String KAFKA_BROKERS = "localhost:9092";
+    public static String KAFKA_BROKERS = "kafka:9092";
     public static String TOPIC_NAME = "raw-topic";
     public static String GROUP_ID_CONFIG = "spring-consumer-group";
     public static String OFFSET_RESET = "earliest";

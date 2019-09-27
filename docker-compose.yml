@@ -1,5 +1,12 @@
 version: "3.7"
 services:
+  demo:
+    image: gaetancollaud/kafka-demo
+    build: .
+    environment:
+      - SPRING_PROFILES_ACTIVE=spring
+#      - SPRING_PROFILES_ACTIVE=raw
+
   kafka:
     image: johnnypark/kafka-zookeeper
     ports:

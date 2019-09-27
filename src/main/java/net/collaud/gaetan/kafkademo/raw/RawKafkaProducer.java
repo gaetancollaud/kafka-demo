@@ -11,7 +11,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +25,7 @@ public class RawKafkaProducer implements CommandLineRunner {
     private static final Logger LOG = LoggerFactory.getLogger(RawKafkaProducer.class);
 
     public static final Duration DELAY = Duration.ofSeconds(5);
-    public static String KAFKA_BROKERS = "localhost:9092";
+    public static String KAFKA_BROKERS = "kafka:9092";
     public static String TOPIC_NAME = "raw-topic";
 
     private final Producer<String, String> producer;
